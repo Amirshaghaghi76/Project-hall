@@ -1,9 +1,13 @@
 <mat-toolbar class="navbar">
-    <div>
-        <li routerLink='user-account'> Create Acount</li>
-        <mat-icon class="icon-account"> account_box</mat-icon>
-
+    <div *ngIf="!user">
+        <button routerLink='register-account' mat-raised-button color="primary"> Sign up</button>
+        <button routerLink='login-account' mat-raised-button color="warn"> Login</button>
     </div>
+    
+    <button (click)="Logout()" *ngIf="user"  mat-raised-button color="accent"> Logout</button>
+
+    <p class="ShowEmail" *ngIf="user">{{user.email}}</p>
+
     <ul class="list">
         <li routerLink="comment"> Comments</li>
         <li> Adversting</li>

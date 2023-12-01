@@ -1,7 +1,6 @@
-export interface User {
-    name: string,
-    password: string,
-    confrimPassword: string,
+export interface User{
+    id:string,
     email:string,
-    age:number
+    // age:number
+    token:string
 }

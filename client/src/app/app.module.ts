@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// client
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
 // material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -21,8 +23,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 
-
-
 // components
 import { AddHallComponent } from './components/add-hall/add-hall.component';
 import { HomeComponent } from './components/home/home.component';
@@ -33,9 +33,9 @@ import { WeddingAdviceComponent } from './components/wedding-advice/wedding-advi
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommentComponent } from './components/comment/comment.component';
-
-
-
+import { NoAccessComponent } from './components/no-access/no-access.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { RegisterComponent } from './components/account/register/register.component';
 
 
 
@@ -51,6 +51,9 @@ import { CommentComponent } from './components/comment/comment.component';
     UserAccountComponent,
     FooterComponent,
     CommentComponent,
+    NoAccessComponent,
+    LoginComponent,
+    RegisterComponent,
     
     
  

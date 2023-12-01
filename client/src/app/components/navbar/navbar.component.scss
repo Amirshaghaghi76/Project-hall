@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    align-items: center;
     background-image: linear-gradient(rgb(174, 118, 226), rgb(120, 188, 222));
 
 
@@ -35,6 +36,13 @@
         }
     }
 
+    .ShowEmail {
+        color: rgb(37, 98, 148);
+        font-weight: bold;
+        margin: 1.5rem;
+
+    }
+
     .list {
         display: flex;
         gap: 0.1rem;
@@ -56,3 +64,10 @@
 
     }
 }
+
+// @media screen and(max-width:420px) {
+//     .navbar {
+//         background: rebeccapurple;
+//     }
+
+// }

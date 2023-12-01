@@ -1,5 +1,11 @@
+using System.Text;
+using api.Interfaces;
+using api.Repositories;
+using api.Services;
 using api.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +39,36 @@ builder.Services.AddCors(options =>
     });
 #endregion Cors
 
+#region Authentication & Authorization
+string tokenValue = builder.Configuration["TokenKey"]!;
+
+if (!string.IsNullOrEmpty(tokenValue))
+{
+    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenValue)),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+        });
+}
+
+
+#endregion Authentication & Authorization
+
+#region Dependency Injections
+builder.Services.AddScoped<IAccountRepository,AccountRepository>();
+builder.Services.AddScoped<IUserRepository,UserRepository>();
+
+builder.Services.AddScoped<ITokenService,TokenService>();
+
+#endregion Dependency Injections
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -42,6 +78,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseCors();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

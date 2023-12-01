@@ -1,0 +1,57 @@
+.content {
+    display: flex;
+    justify-content: center;
+
+    .title {
+        display: flex;
+
+        .icon {
+            margin-top: 1.25rem;
+            margin-left: 0.5rem;
+            color: rgb(149, 33, 139);
+            cursor: pointer;
+        }
+    }
+
+    h2 {
+        color: rgb(133, 33, 149);
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 0.3rem solid;
+        border-radius: 1rem;
+        border-color: rgb(88, 147, 211) rgb(88, 147, 211) rgb(177, 84, 152) rgb(177, 84, 152);
+        background-image: linear-gradient(rgb(237, 147, 238), rgb(121, 198, 232), rgb(249, 249, 249));
+
+        width: 28rem;
+        margin-top: 1rem;
+        gap: 1.5rem;
+
+        mat-form-field {
+            width: 18rem;
+        }
+
+        .panel {
+            display: flex;
+
+            button {
+                margin: 0.5rem;
+            }
+
+        }
+    }
+
+    .check {
+        color: red;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+
+}

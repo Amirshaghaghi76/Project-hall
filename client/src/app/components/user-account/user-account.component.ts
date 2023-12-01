@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/model/user.model';
+import { AppUser } from 'src/app/model/appUser.model';
 import { userLogin } from 'src/app/model/userLogin.model';
 
 
@@ -11,8 +11,8 @@ import { userLogin } from 'src/app/model/userLogin.model';
   styleUrls: ['./user-account.component.scss']
 })
 export class UserAccountComponent {
-  userRes: User | undefined;
-  userLogin:userLogin|undefined;
+  userRes: AppUser | undefined;
+  userLogin: userLogin | undefined;
 
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
@@ -44,9 +44,9 @@ export class UserAccountComponent {
   registerUser(): void {
     console.log(this.userFg.value);
 
-    let account: User = {
-      name: this.NameCtrl.value,
-      password: this.PasswordCtrl.value,
+    let account: AppUser = {
+       name: this.NameCtrl.value,
+      passWord: this.PasswordCtrl.value,
       confrimPassword: this.ConfrimPasswordCtrl.value,
       email: this.EmailCtrl.value,
       age: this.AgeCtrl.value
