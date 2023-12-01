@@ -10,7 +10,7 @@ import { AccountService } from 'src/app/services/account.service';
 export class NavbarComponent  {
   user: User | null | undefined;
   constructor(private accountService: AccountService) {
-    
+
    this.accountService.currentUser$.subscribe({
       next: response => this.user = response
     })
@@ -21,3 +21,6 @@ export class NavbarComponent  {
     this.accountService.LogoutUser();
   }
 }
+
+
+456
