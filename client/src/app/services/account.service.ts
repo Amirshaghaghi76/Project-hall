@@ -52,5 +52,5 @@ export class AccountService {
     this.currentUserSourse.next(null);
 
     localStorage.clear();
-   }
+  }
 }

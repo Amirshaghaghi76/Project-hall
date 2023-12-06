@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LoginUser } from 'src/app/model/login.user.model';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -10,10 +11,14 @@ import { AccountService } from 'src/app/services/account.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   apiErrorMassage: string | undefined;
+  subscribed: Subscription | undefined;
 
   constructor(private accountService: AccountService, private fb: FormBuilder, http: HttpClient, private router: Router) {
+  }
+  ngOnDestroy(): void {
+    this.subscribed?.unsubscribe;
   }
 
   loginFg = this.fb.group({
@@ -22,7 +27,7 @@ export class LoginComponent {
   })
 
 
- get EmailCtrl(): FormControl {
+  get EmailCtrl(): FormControl {
     return this.loginFg.get('emailCtrl') as FormControl;
   }
 
@@ -38,10 +43,10 @@ export class LoginComponent {
       password: this.PasswordCtrl.value,
     }
 
-    this.accountService.loginUser(user).subscribe({
-      next: user =>{
-       console.log(user),
-       this.router.navigateByUrl('/');
+    this.subscribed = this.accountService.loginUser(user).subscribe({
+      next: user => {
+        console.log(user),
+          this.router.navigateByUrl('/');
       },
       error: err => this.apiErrorMassage = err.error
     })

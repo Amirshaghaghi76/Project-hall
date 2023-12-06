@@ -21,6 +21,3 @@ export class NavbarComponent  {
     this.accountService.LogoutUser();
   }
 }
-
-
-456
