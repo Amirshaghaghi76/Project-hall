@@ -1,8 +1,18 @@
+.content{
+  display: flex;
+  justify-content: center;
+  
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  border: 0.5rem solid;
+  border-color: rgb(88, 147, 211) rgb(177, 84, 152) rgb(177, 84, 152) rgb(88, 147, 211);
+  width: 50%;
+  margin-top: 1rem;
+  
+  
 
   h2 {
     padding-top: 1rem;
@@ -34,4 +44,8 @@ form {
       font-weight: bold;
     }
   }
+  button{
+    margin-bottom: 0.5rem;
+  }
+}
 }

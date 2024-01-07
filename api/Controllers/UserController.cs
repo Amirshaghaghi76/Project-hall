@@ -6,6 +6,7 @@ namespace api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
@@ -16,7 +17,7 @@ public class UserController : ControllerBase
     }
 
 
-    [Authorize]
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<UserDto>>> GetAll(CancellationToken cancellationToken)
     {
@@ -26,7 +27,7 @@ public class UserController : ControllerBase
 
         return userDtos;
     }
-
+    [Authorize]
     [HttpGet("get-by-id/{userId}")]
     public async Task<ActionResult<UserDto>> GetById(string userId, CancellationToken cancellationToken)
     {

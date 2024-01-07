@@ -18,7 +18,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 
-const components = [
+const components = [ //variable
   AddHallComponent,
   HomeComponent,
   NavbarComponent,

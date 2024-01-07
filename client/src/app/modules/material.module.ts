@@ -11,6 +11,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -30,7 +32,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatStepperModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule,
+    MatDividerModule
   ]
 })
 export class MaterialModule { }

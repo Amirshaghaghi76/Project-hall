@@ -9,13 +9,13 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // border: solid 3px rgb(160, 124, 95);
+
 
 
         .card-title {
             width: 33rem;
             margin-top: 1rem;
-    
+
             background-image: linear-gradient(rgb(138, 176, 212), rgb(184, 108, 192), rgb(117, 150, 187));
 
             h3 {
@@ -50,10 +50,22 @@ body {
         }
     }
 
+    .show-user {
+        display: flex;
+        justify-content: center;
+
+        button {
+            align-items: center;
+            margin-top: 1rem;
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
     .Counseling {
         display: flex;
         justify-content: center;
-        margin-top: 3rem;
+        margin-top: 8rem;
 
         form {
             border: 0.2rem solid rgb(64, 68, 193);

@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { min } from 'rxjs';
 import { Hall } from 'src/app/model/hall.model';
+import { AccountService } from 'src/app/services/account.service';
+import { AddHallService } from 'src/app/services/add-hall.service';
 
 @Component({
   selector: 'app-add-hall',
@@ -20,7 +22,7 @@ export class AddHallComponent {
 
   hallRes: Hall | undefined
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private addHallService: AddHallService, private fb: FormBuilder, private http: HttpClient) { }
 
   hallFg = this.fb.group({
     nameCtrl: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(9)]],
@@ -52,16 +54,11 @@ export class AddHallComponent {
       elevator: this.ElevatorCtrl.value,
       // lighting: this.LightingCtrl.value,
     }
-
-    this.http.post<Hall>('http://localhost:5000/api/hallordinary/register', hall).subscribe(
-      {
-        next: res => {
-          this.hallRes = res;
-          console.log(res);
-        }
+    this.addHallService.addHall(hall).subscribe({
+      next: hall => {
+        console.log(hall);
       }
-    );
-
+    })
   }
   get NameCtrl(): FormControl {
     return this.hallFg.get('nameCtrl') as FormControl
@@ -97,5 +94,7 @@ export class AddHallComponent {
   //  
   // return this.hallFg.get('lightingCtrl') as FormControl
   // }
+
+
 }
 
